@@ -38,6 +38,11 @@ class EventController < ApplicationController
     end
   end
 
+  def courses
+    @data = File.read("#{Rails.root}/public/course_data.json")
+    render json: @data
+  end
+
   private
     def filtered_params
       temp = params.permit(:id, :name, :location, :description, :department, :class, :user_id, :start_t, :end_t, :faculty)

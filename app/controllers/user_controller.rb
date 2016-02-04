@@ -37,9 +37,17 @@ class UserController < ApplicationController
     end
   end
 
+  def events
+    render json: current_user.events
+  end
+
   private
     def filtered_params
       params.permit(:id, :faculty, :email, :username, :password)
+    end
+
+    def current_user
+      User.find(params[:user_id])
     end
 
 end
