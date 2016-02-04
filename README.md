@@ -25,8 +25,10 @@ Response: A JSON array
         class: <String>,
         start_t: <Date_Time>,
         end_t: <Date_Time>,
-        faculty: <Boolean>
-    }
+        faculty: <Boolean>,
+        number_attending: <Integer>
+    },
+    ...
 ]
 ```
 
@@ -40,19 +42,19 @@ Request
 POST '/event'
 # body
 {
-    userid: <Integer>,
+    user_id: <Integer>,i
     name: <String>,
     location: <String>,
     description: <String>,
     department: <String>,
-    class: <String>,
-    start_t: <Date_Time>,
-    end_t: <Date_Time>,
+    course: <String>,
+    start_t: <Date_Time, ISO-8601>,
+    end_t: <Date_Time, ISO-8601>,
     faculty: <Boolean>
 }
 ```
 
-Response
+Response -> Same object as response if successful
 ```
 ```
 
@@ -63,25 +65,11 @@ Get an event
 
 Request
 ```
-GET 'event/123abc'
+GET 'event/1'
 ```
 
 Response
 ```js
-{
-
-}
-```
-
-
-####PUT `/event/:id`
-
-Update an event
-
-Request
-```js
-PUT `/event/123abc`
-# body
 {
     userid: <Integer>,
     name: <String>,
@@ -91,15 +79,35 @@ PUT `/event/123abc`
     class: <String>,
     start_t: <Date_Time>,
     end_t: <Date_Time>,
+    faculty: <Boolean>,
+    number_attending: <Integer>
+}
+```
+
+
+####POST `/event/:id`
+
+Update an event
+
+Request
+```js
+POST `/event/1`
+# body
+{
+    user_id: <Integer>,i
+    name: <String>,
+    location: <String>,
+    description: <String>,
+    department: <String>,
+    course: <String>,
+    start_t: <Date_Time, ISO-8601>,
+    end_t: <Date_Time, ISO-8601>,
     faculty: <Boolean>
 }
 ```
 
-Response
 ```
-{
-
-}
+Response -> Same object as response if successful
 ```
 
 
@@ -109,10 +117,15 @@ Delete an event
 
 Request
 ```
-DELETE '/event/123abc'
+DELETE '/event/1'
 ```
 
 Response
 ```
 ```
+
+
+
+
+
 
