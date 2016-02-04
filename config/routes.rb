@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'event#index'
-  resources :event
-  resources :user
-  get '/user/:id/event', to: 'user#events'
+  resources :event do
+    put '/attend', to: 'event#attend'
+    put '/leave', to: 'event#leave'
+  end
+  resources :user do
+    get '/event', to: 'user#events'
+  end
+  # get '/user/:id/event', to: 'user#events'
   get '/courses', to: 'event#courses'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

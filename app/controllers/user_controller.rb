@@ -5,8 +5,11 @@ class UserController < ApplicationController
   end
 
   def create
+    binding.pry
     user = User.new filtered_params
+    binding.pry
     user.save!
+    binding.pry
     render json: user
   end
 

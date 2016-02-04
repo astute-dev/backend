@@ -37,7 +37,7 @@ Add a new event
 
 Request
 ```
-GET '/event'
+POST '/event'
 # body
 {
     userid: <Integer>,

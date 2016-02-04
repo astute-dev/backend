@@ -6,8 +6,10 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.string :department
       t.string :course
+      t.string :members_attending
 
       t.integer :user_id
+      t.integer :number_attending
 
       # times
       t.datetime :start_t
