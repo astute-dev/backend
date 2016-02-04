@@ -127,7 +127,7 @@ Response
 
 ####GET `/courses`
 
-Get a list of courses sorted by department
+Get a list of courses sorted by department. Notice that every department has a "General" option, in addition to the other courses.
 
 Request
 ```
