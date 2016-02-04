@@ -1,4 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  has_many :users, through: :events_users
+
+  def organizer
+  	return User.find(self.user_id).username
+  end
+  
 end

@@ -1,6 +1,6 @@
 class EventController < ApplicationController
   def index
-    render json: Event.all
+    render json: Event.all.to_json(:methods => [:organizer])
   end
 
   def create
@@ -41,6 +41,14 @@ class EventController < ApplicationController
   def courses
     @data = File.read("#{Rails.root}/public/course_data.json")
     render json: @data
+  end
+
+  def attend
+
+  end
+
+  def leave
+
   end
 
   private

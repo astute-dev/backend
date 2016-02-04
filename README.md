@@ -135,7 +135,7 @@ GET '/courses'
 ```
 
 Response
-```
+```js
 [
     "DEPT" :
     [
@@ -184,7 +184,7 @@ GET '/user/1'
 ```
 
 Response
-```
+```js
 {
     "id":1,
     "faculty":false,
