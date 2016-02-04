@@ -7,15 +7,27 @@ Backend for [Astute](http://astute-dev.github.io/) app.
 #### GET `/event`
 
 Request
+
 ```
 GET '/event'
 ```
 
-Response
-```js
-{
+Response: A JSON array
 
-}
+```js
+[
+    {
+        userid: <Integer>,
+        name: <String>,
+        location: <String>,
+        description: <String>,
+        department: <String>,
+        class: <String>,
+        start_t: <Date_Time>,
+        end_t: <Date_Time>,
+        faculty: <Boolean>
+    }
+]
 ```
 
 
@@ -28,7 +40,15 @@ Request
 GET '/event'
 # body
 {
-
+    userid: <Integer>,
+    name: <String>,
+    location: <String>,
+    description: <String>,
+    department: <String>,
+    class: <String>,
+    start_t: <Date_Time>,
+    end_t: <Date_Time>,
+    faculty: <Boolean>
 }
 ```
 
@@ -63,7 +83,15 @@ Request
 PUT `/event/123abc`
 # body
 {
-
+    userid: <Integer>,
+    name: <String>,
+    location: <String>,
+    description: <String>,
+    department: <String>,
+    class: <String>,
+    start_t: <Date_Time>,
+    end_t: <Date_Time>,
+    faculty: <Boolean>
 }
 ```
 
