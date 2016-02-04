@@ -4,11 +4,11 @@ Backend for [Astute](http://astute-dev.github.io/) app.
 
 ## API
 
-#### GET `/events`
+#### GET `/event`
 
 Request
 ```
-GET '/events'
+GET '/event'
 ```
 
 Response
@@ -19,13 +19,13 @@ Response
 ```
 
 
-####POST `/events`
+####POST `/event`
 
 Add a new event
 
 Request
 ```
-GET '/events'
+GET '/event'
 # body
 {
 
@@ -37,13 +37,13 @@ Response
 ```
 
 
-####GET `/events/:id`
+####GET `/event/:id`
 
 Get an event
 
 Request
 ```
-GET 'events/123abc'
+GET 'event/123abc'
 ```
 
 Response
@@ -54,13 +54,13 @@ Response
 ```
 
 
-####PUT `/events/:id`
+####PUT `/event/:id`
 
 Update an event
 
 Request
 ```js
-PUT `/events/123abc`
+PUT `/event/123abc`
 # body
 {
 
@@ -75,13 +75,13 @@ Response
 ```
 
 
-####DELETE `/events/:id`
+####DELETE `/event/:id`
 
 Delete an event
 
 Request
 ```
-DELETE '/events/123abc'
+DELETE '/event/123abc'
 ```
 
 Response
