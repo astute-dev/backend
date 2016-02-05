@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false, default: ""
       t.string :password, null: false, default: ""
       t.string :username, null: false, default: ""
+      t.integer :event_id
 
       t.timestamps null: false
     end
