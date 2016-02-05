@@ -64,7 +64,7 @@ class EventController < ApplicationController
 
   private
     def filtered_params
-      temp = params.permit(:id, :name, :location, :description, :department, :class, :user_id, :start_t, :end_t, :faculty)
+      temp = params.permit(:id, :photo_url, :name, :location, :description, :department, :class, :user_id, :start_t, :end_t, :faculty)
       temp[:start_t] = DateTime.parse temp[:start_t]
       temp[:end_t] = DateTime.parse temp[:end_t]
       temp
