@@ -1,6 +1,7 @@
 class EventController < ApplicationController
   def index
-    render json: Event.all.to_json(:methods => [:organizer, :number_attending])
+    events = Event.all.to_json(:methods => [:organizer, :number_attending])
+    render json: notify_attendence(events)
   end
 
   def create
@@ -44,12 +45,22 @@ class EventController < ApplicationController
   end
 
   def attend
-
+    eu = EventsUser.where(user_id: params[:user_id], event_id: params[:event_id])
+    unless eu.blank?
+      user = User.find(params[:user_id])
+      event = Event.find(params[:event_id])
+      event.users.delete(user)
+      event.save!
+      render text: "You left the astute group.", status: 200
+    else
+      if EventsUser.new(user_id: params[:user_id], event_id: params[:event_id]).save!
+        render text: "You joined the astute group!", status: 200
+      else
+        render text: "Something went wrong saving your attendance", status: 500
+      end
+    end
   end
 
-  def leave
-
-  end
 
   private
     def filtered_params
@@ -61,5 +72,21 @@ class EventController < ApplicationController
 
     def current_user
       User.find(params[:user_id])
+    end
+
+    def notify_attendence (events)
+      if params[:user_id]
+        events = JSON.parse(events)
+        events.each do |event|
+          event["attending"] = attending?(event["id"])
+        end
+        events.to_json
+      end
+      events
+    end
+
+    def attending?(id)
+      event = Event.find(id)
+      event.users.find_by_id(params[:user_id]).present?
     end
 end

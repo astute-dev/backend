@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   root 'event#index'
   resources :event do
-    put '/attend', to: 'event#attend'
-    put '/leave', to: 'event#leave'
+    post '/attend', to: 'event#attend'
   end
   resources :user do
     get '/event', to: 'user#events'

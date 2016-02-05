@@ -4,12 +4,13 @@ Backend for [Astute](http://astute-dev.github.io/) app.
 
 ## API
 
-#### GET `/event`
+#### GET `/event?user_id=`
 
-Request
+Gets the list of events
+If you omit user_id, then the list will be returned without information about your attendance
 
 ```
-GET '/event'
+GET '/event?user_id='
 ```
 
 Response: A JSON array
@@ -26,7 +27,8 @@ Response: A JSON array
         start_t: <Date_Time>,
         end_t: <Date_Time>,
         faculty: <Boolean>,
-        number_attending: <Integer>
+        number_attending: <Integer>,
+        attending: <Boolean> # PRESENT ONLY IF YOU SEND THE USER_ID
     },
     ...
 ]
@@ -66,12 +68,16 @@ Get an event
 Request
 ```
 GET 'event/1'
+#body
+{
+    user_id: <Integer>
+}
 ```
 
 Response
 ```js
 {
-    userid: <Integer>,
+    user_id: <Integer>,
     name: <String>,
     location: <String>,
     description: <String>,
@@ -80,7 +86,8 @@ Response
     start_t: <Date_Time>,
     end_t: <Date_Time>,
     faculty: <Boolean>,
-    number_attending: <Integer>
+    number_attending: <Integer>,
+    attending: <Boolean>  # PRESENT ONLY IF YOU SEND THE USER_ID
 }
 ```
 
@@ -94,7 +101,7 @@ Request
 POST `/event/1`
 # body
 {
-    user_id: <Integer>,i
+    user_id: <Integer>,
     name: <String>,
     location: <String>,
     description: <String>,
@@ -103,6 +110,25 @@ POST `/event/1`
     start_t: <Date_Time, ISO-8601>,
     end_t: <Date_Time, ISO-8601>,
     faculty: <Boolean>
+}
+```
+
+```
+Response -> Same object as response if successful
+```
+
+####POST `/event/:id/attend`
+
+Toggles whether you are attending an event. 
+If you aren't, this will make it so you are.
+If you are, this will make it so you are not.
+
+Request
+```js
+POST `/event/1`
+# body
+{
+    user_id: <Integer>
 }
 ```
 
