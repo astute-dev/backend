@@ -1,6 +1,6 @@
 class EventController < ApplicationController
   def index
-    render json: Event.all.to_json(:methods => [:organizer])
+    render json: Event.all.to_json(:methods => [:organizer, :number_attending])
   end
 
   def create
@@ -12,7 +12,7 @@ class EventController < ApplicationController
   end
 
   def show
-    render json: Event.find(params[:id])
+    render json: Event.find(params[:id]).to_json(:methods => [:organizer, :number_attending])
   end
 
   def update
