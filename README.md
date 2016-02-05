@@ -4,9 +4,10 @@ Backend for [Astute](http://astute-dev.github.io/) app.
 
 ## API
 
-#### GET `/event?user_id=`
+#### GET `/event?user_id=<id>`
 
-Gets the list of events
+Gets the list of events - suggested that you supply the id of the current user.
+
 If you omit user_id, then the list will be returned without information about your attendance
 
 ```
