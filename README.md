@@ -1,3 +1,5 @@
+#1st place Winner of the 2016 HackU Hackathon
+
 # Backend
 
 Backend for [Astute](http://astute-dev.github.io/) app.
